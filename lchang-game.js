@@ -31,12 +31,14 @@ function start() {
     // if "True" it runs the expression after the question mark and before the colon.
     // if "False" it runs the expression after the colon mark. 
   }
+  // if/else statement in JS.
 }
 
 function start1() {
   let password = prompt("Enter a Password:");
   
   if (password === "Friday") {
+  	// I use the triple equal sign so it checks the value AND type.
     console.log("Welcome!" + "\n");
     setTimeout(function() {
       top1();
@@ -85,6 +87,7 @@ function top1() {
       console.log("I didn't understand that..." + "\n");
       console.log("exiting...");
   }
+  // Look! A wild Switch Statement! Part of many conditional statements.
 }
 
 function top2(color) {
@@ -99,7 +102,6 @@ function top2(color) {
   setTimeout(function(){
     questLoop();
   }, 1000);
-  
 }
 
 let questionList = [{
@@ -119,16 +121,19 @@ let questionList = [{
   "correctResponse": "CORRECT! Rain Drop Drop Top is a lyric from the song Bad and Boujee by hip hop group Migos that became a phrasal template for jokes primarily on Twitter."
   }
 ];
+// This is an array that holds 3 objects. You can see the key and value pairs at play.
+// You can also see that value of choices is an array that is in an object that is in an array.
 
 let winCount = 0;
 
 function questLoop() {
-  for (var i=0; i<questionList.length;i++) {
+  for (var i=0; i<questionList.length; i++) {
     let question = questionList[i].question;
     let choices = questionList[i].choices;
     let correctAnswer = questionList[i].correctAnswer;
     let correctResponse = questionList[i].correctResponse;
-  
+  	// Good 'ol for loop
+
     let answer = prompt(
       question + "\n" + "\n" + 
       "[1] " + choices[0] + "\n" + 
@@ -140,6 +145,8 @@ function questLoop() {
     if (answer === correctAnswer) {
       confirm(correctResponse);
       winCount++;
+      // This is short hand for winCount = winCount + 1
+      // You can also write it as winCount += 1
     } else {
       alert("Sorry, that was incorrect, let's move on...");
     }
@@ -174,10 +181,10 @@ function fail() {
   console.log("     \\       /  // ,\':      ,--\'  \`-.");
   console.log("      \`-.    \`-/ \'  :   _,\'         \`.");
   console.log("         \`-._ /      \`--\'/             \\");
-  console.log("            ,'           :              \\");
+  console.log("            ,\'           :              \\");
   console.log("           /             :               \\");
-  console.log("        ,-'              :               /");
-  console.log("       /                 :             -'");
+  console.log("        ,-\'              :               /");
+  console.log("       /                 :             -\'");
   
   console.log("\n" + `Your score: ${winCount}/${questionList.length}` + "\n");
   
@@ -200,7 +207,7 @@ function win() {
     console.log("A perfect score!");
   }
   
-  console.log("You won! Congratulations!");
+  console.log("You passed! Congratulations!");
   
   setTimeout(function() {
     winCount = 0;
@@ -208,6 +215,8 @@ function win() {
     let playAgain = prompt("Would you like to play again?");
     
     if (playAgain.toLowerCase() === "y") {
+    	// .toLowerCase method is used here so we don't need to check for
+    	// capitalization of the input.
       top1();
     } else if (playAgain.toLowerCase() === "n") {
       console.log(finishMsg);
@@ -218,3 +227,4 @@ function win() {
 }
 
 start();
+// This starts the game! :)

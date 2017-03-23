@@ -159,7 +159,7 @@ echo:
 echo [1]Drip Drop
 echo [2]Rain Rain go Away
 echo [3]Drop Top
-echo [4]Don't rain on my parade.
+echo [4]Don\'t rain on my parade.
 echo:
 echo:
 set /p ans1= Answer:
