@@ -1,3 +1,5 @@
+'use strict';
+
 let title = "Welcome to Meme Trivia!" + "\n";
 
 console.log(title);
@@ -5,13 +7,17 @@ console.log(title);
 function start() {
   let age = prompt("Year of Birth:");
   let birth = 2017 - parseInt(age);
+  // parseInt function parses a string argument and returns an integer.
   let deny = "Sorry, you are underaged!" + "\n";
   
   if (birth >= 18) {
     console.log(`You are ${birth} years old!` + "\n");
+  	// String interpolation in ES6 using ` backticks and ${} template literals.
     setTimeout(function() {
       start1();
     }, 1000);
+    // Will wait 1000 milliseconds before executing whatever that's in
+    // the code block.
   } else if (birth < 18) {
     setTimeout(function() {
       console.log(deny);
@@ -21,6 +27,9 @@ function start() {
     let continueTrivia = confirm("Sorry, I didn't catch that... Would you like to try again?");
     
     continueTrivia ? start() : console.log("Thanks for playing!");
+    // Ternary Operator evaluates the condition before the question mark.
+    // if "True" it runs the expression after the question mark and before the colon.
+    // if "False" it runs the expression after the colon mark. 
   }
 }
 
@@ -40,7 +49,9 @@ function start1() {
   }
 }
 
-let colorArr = ["PINK", "GREEN", "RED", "BLUE"];
+const colorArr = ["PINK", "GREEN", "RED", "BLUE"];
+// const is part of ES6. The value of the variable can't be
+// reassigned or redeclared.
 
 function top1() {
   let colorChoice = prompt("Pick a color: [1] Pink, [2] Green, [3] Red, [4] Blue");
@@ -102,10 +113,10 @@ let questionList = [{
   "correctAnswer": "2",
   "correctResponse": "CORRECT! Cash Me Ousside, How Bow Dah is a memorable quote uttered by 13-year-old Danielle Bregoli on The Dr. Phil Show, during which she challenges the show's audience to a fight with the phrase Catch me outside, how about that?"
   }, {
-    "question": "As a game among friends to jokingly prove their credibility/loyalty in which one person would text another Rain Drop and the other would have to reply:",
-    "choices": ["Drip Drop","Rain Rain Go Away","Drop Top","Don't rain on my parade"],
-    "correctAnswer": "3",
-    "correctResponse": "CORRECT! Rain Drop Drop Top is a lyric from the song Bad and Boujee by hip hop group Migos that became a phrasal template for jokes primarily on Twitter."
+  "question": "As a game among friends to jokingly prove their credibility/loyalty in which one person would text another Rain Drop and the other would have to reply:",
+  "choices": ["Drip Drop","Rain Rain Go Away","Drop Top","Don't rain on my parade"],
+  "correctAnswer": "3",
+  "correctResponse": "CORRECT! Rain Drop Drop Top is a lyric from the song Bad and Boujee by hip hop group Migos that became a phrasal template for jokes primarily on Twitter."
   }
 ];
 
@@ -127,10 +138,8 @@ function questLoop() {
     );
   
     if (answer === correctAnswer) {
-      if (confirm(correctResponse)) {
-        winCount++;
-      }
-      
+      confirm(correctResponse);
+      winCount++;
     } else {
       alert("Sorry, that was incorrect, let's move on...");
     }
